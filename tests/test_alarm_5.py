@@ -23,21 +23,6 @@ async def plc() -> PLCClient:
     await plc.set_object_value("DQ3", False)  # Close motor-controlled discharging door
     await plc.disconnect()
 
-# @pytest.mark.asyncio
-# async def test_emergency_button_alarm(plc: PLCClient):
-#     # Press the emergency button (DI3)
-#     await plc.set_object_value("DI3", True)  # Simulate pressing the emergency button
-
-#     # Check if the emergency button alarm (A5) is triggered
-#     assert await plc.get_alarm_status("A5") == True
-
-#     # Turn off everything and open the discharging gate
-#     await plc.set_object_value("DQ2", False)  # Stop Heating System
-#     await plc.set_object_value("DQ3", True)   # Open motor-controlled discharging door
-
-#     # Release the emergency button
-#     await plc.set_object_value("DI3", False)  # Simulate releasing the emergency button
-
 # Emergency button alarm test
 @pytest.mark.asyncio
 async def test_emergency_button_alarm(plc: PLCClient):

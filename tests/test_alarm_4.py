@@ -21,16 +21,6 @@ async def plc() -> PLCClient:
     await plc.set_object_value("DQ3", False)  # Close motor-controlled discharging door
     await plc.disconnect()
 
-# @pytest.mark.asyncio
-# async def test_discharging_door_alarm(plc: PLCClient):
-#     # Open the discharging door
-#     await plc.set_object_value("DI9", True)  # Open discharging door
-
-#     # Check if the discharging door alarm (A4) is triggered
-#     assert await plc.get_alarm_status("A4") == True
-
-#     # Close the discharging door
-#     await plc.set_object_value("DI9", False)  # Close discharging door
 
 # Discharging door alarm test
 @pytest.mark.asyncio

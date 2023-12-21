@@ -1,7 +1,32 @@
-## Set the virtual environment Python3.7
+## Python3.7 Virtual Environment Dependencies
+```javascript
+pip install -r requirements.txt
 ```
-conda activate condaenv
+
+### Usage
+To Set the `OPC-UA` server:
 ```
+python src plc_simulator.py
+```
+
+Check logs:
+```
+tail -f plc_simulator.log
+```
+To run the tester:
+```
+ python -m pytest tests
+```
+
+#### Tester
+* GRAFCET logic: `test_aa_grafcet.py`
+* Tank high level: `test_alarm_0.py`
+* Tank low level: `test_alarm_1.py`
+* High temperature (>80): `test_alarm_2.py`
+* Low temperature (<10): `test_alarm_3.py`
+* Discharging door open: `test_alarm_4.py`
+* Emergency activated: `test_alarm_5.py`
+
 
 ## Digital Inputs (DI):
 - DI0: START BUTTON

@@ -21,22 +21,6 @@ async def plc() -> PLCClient:
     await plc.set_object_value("DQ2", False)  # Stop Heating System
     await plc.disconnect()
 
-# @pytest.mark.asyncio
-# async def test_low_temperature_alarm(plc: PLCClient):
-#     # Heating loop until temperature drops below 10 degrees
-#     while True:
-#         # Simulate updating inputs from server (introducing a delay)
-#         await asyncio.sleep(0.1)
-
-#         # Check if the low-temperature alarm (A3) is triggered
-#         if await plc.get_object_value("AI0") < 10.0:
-#             break
-
-#     # Stop heating once temperature drops below 10 degrees
-#     await plc.set_object_value("DQ2", False)  # Stop Heating System
-
-#     # Check if the low-temperature alarm (A3) is triggered
-#     assert await plc.get_alarm_status("A3") == True
 
 # Low temperature alarm test
 @pytest.mark.asyncio

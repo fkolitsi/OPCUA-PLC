@@ -6,6 +6,8 @@ class PLCClient:
 
     def __init__(self, url, timeout):
         #: OPC UA client
+        self.url = url
+        self.timeout = timeout
         self.client = Client(url, timeout)
 
     async def set_object_value(self, name, value):
@@ -25,6 +27,9 @@ class PLCClient:
     
     async def set_object_pulse(self, name):
         myvar = await self.myobj.get_child(f"{self.idx}:{name}")
+        async def shielded_sleep(duration):
+            await asyncio.shield(asyncio.sleep(duration))
+        
         await myvar.write_value(True)
         await asyncio.sleep(0.5)
         await myvar.write_value(False)
@@ -34,9 +39,10 @@ class PLCClient:
 
     async def init(self):
         await self.client.connect()
-        namespace = "http://examples.freeopcua.github.io"
+        namespace = "http://PLC-simulator/opc"
         self.idx = await self.client.get_namespace_index(namespace)
         print("nsidx", self.idx)
         self.myobj = await self.client.nodes.root.get_child(
             ["0:Objects", f"{self.idx}:myPLC"]
         )
+
