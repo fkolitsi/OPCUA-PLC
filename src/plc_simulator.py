@@ -186,7 +186,7 @@ class PLCSimulator:
         self.server = Server()
         await self.server.init() 
         # self.server.set_endpoint("opc.tcp://localhost:7000/freeopcua/server/")
-        self.server.set_endpoint("opc.tcp://localhost:48020")
+        self.server.set_endpoint("opc.tcp://localhost:48020/PLC-simulator/opc")
 
         # setup our own namespace, not really necessary but should as spec
         # uri = "http://examples.freeopcua.github.io"
