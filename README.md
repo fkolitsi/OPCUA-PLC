@@ -17,6 +17,7 @@ To run the tester:
 ```
  python -m pytest tests
 ```
+The `PLC_SY.lld` file is the ladder code where Siemens LOGO!Comfort software was used
 
 #### Tester
 * GRAFCET logic: `test_aa_grafcet.py`

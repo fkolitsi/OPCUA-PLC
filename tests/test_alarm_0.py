@@ -5,7 +5,7 @@ import pytest_asyncio
 
 from src.plc_client import PLCClient
 
-SERVER_URL = "opc.tcp://localhost:7000/freeopcua/server/"
+SERVER_URL = "opc.tcp://localhost:48020/PLC-simulator/opc"
 CLIENT_TIMEOUT = 5  # seconds
 
 @pytest_asyncio.fixture()
@@ -26,16 +26,6 @@ async def plc() -> PLCClient:
     # Disconnect
     await plc.disconnect()
 
-# # Trigger overfilling condition
-# @pytest.mark.asyncio
-# async def test_fillingheating_overfilling(plc: PLCClient):
-#     assert await plc.get_object_value("DQ0") == True # Tank was filling
-
-#     await plc.set_object_value("DI8", True) # Overfilling sensor active
-#     await asyncio.sleep(1) # Waiting for reactions
-
-#     assert await plc.get_object_value("DQ0") == False # Tank stopped filling
-#     assert await plc.get_alarm_status("A0") == True # Alarm is triggered
 
 # Trigger overfilling condition
 @pytest.mark.asyncio
