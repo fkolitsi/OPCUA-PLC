@@ -105,4 +105,5 @@ The `PLC_SY.lld` file is the ladder code where Siemens LOGO!Comfort software was
 | A4 (Door Open) | DI9 is True | Set Active | 1 |
 | A5 (Emergency) | DI3 is True | Set Active | 1 |
 
-
+### Extra features
+Pressure sensors could be added to the INPUT and OUTPUT valves to ensure the amount of water is the same in case of a clogged pipe
