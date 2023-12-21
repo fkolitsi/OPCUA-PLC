@@ -4,7 +4,7 @@ import pytest_asyncio
 
 from src.plc_client import PLCClient
 
-SERVER_URL = "opc.tcp://localhost:7000/freeopcua/server/"
+SERVER_URL = "opc.tcp://localhost:48020/PLC-simulator/opc"
 CLIENT_TIMEOUT = 5  # seconds
 
 @pytest_asyncio.fixture()
