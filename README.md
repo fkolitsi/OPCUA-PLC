@@ -6,7 +6,7 @@ pip install -r requirements.txt
 ### Usage
 To Set the `OPC-UA` server:
 ```
-python src plc_simulator.py
+python src/plc_simulator.py
 ```
 
 Check logs:
